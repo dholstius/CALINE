@@ -1,0 +1,10 @@
+Package: CALINE
+Type: Package
+Title: Implementations of models in the CALINE family
+Version: 0.1
+Date: 2011-07-08
+Author: David Holstius
+Maintainer: David Holstius <david.holstius@berkeley.edu>
+License: BSD
+Depends: methods, plume
+LazyLoad: yes
