@@ -1,0 +1,10 @@
+message("Testing FreeFlowLinks")
+require(plume)
+mat <- matrix(c(0, -5000, 0, 5000), ncol=4)
+attr <- data.frame(TYP='AG', VPH=3000, W=30, H=0, EF=30)
+row.names(attr) <- row.names(mat) <- "LINK A"
+geom <- SpatialSegments(mat)
+sldf <- SpatialLinesDataFrame(geom, attr)
+ssdf <- FreeFlowLinks(sldf)
+print(as.data.frame(ssdf))
+message(" FreeFlowLinks OK")
