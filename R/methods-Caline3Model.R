@@ -1,18 +1,36 @@
-require(plume)
+setGeneric("Caline3Model", 
+	function(receptors, sources, conditions, ...) {
+		standardGeneric("Caline3Model")
+	}
+)
+
+setMethod("Caline3Model", 
+	signature(
+		receptors = "Receptors", 
+		sources = "FreeFlowLinks", 
+		conditions = "HourlyMeteorology"
+	),
+	function(receptors, sources, conditions, ...) {
+		new("Caline3Model", 
+			receptors = receptors, 
+			sources = sources, 
+			conditions = conditions, 
+			...
+		)
+	}
+)
 
 # Native code wrapper
-.CALINE3.Fortran <- function(receptors, links, meteorology, 
-		settling.velocity = 0.0,
-		deposition.velocity = 0.0,
-		...) {
+CALINE3.Fortran <- function(...) {
 	message("Entering CALINE3.Fortran")
+	message("Exiting CALINE3.Fortran")
 	NULL	
 }
 
-.CALINE3.receptors <- function(object, ...) {
-	message("Entering CALINE3.receptors")
-	.CALINE3.Fortran(receptors=object, ...)
-}
-
 setGeneric("predict")
-setMethod("predict", signature(object="Receptors"), .CALINE3.receptors)
+
+setMethod("predict", signature(object="Caline3Model"), function(object, ...) {
+	message("Entering predict() for Caline3Model")
+	CALINE3.Fortran(receptors=object, ...)
+	message("Exiting predict() for Caline3Model")
+})

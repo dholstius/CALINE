@@ -4,6 +4,19 @@ setClass("HourlyMeteorology",
 	contains = "Conditions"
 )
 
+setClass("Pollutant", 
+	representation(
+		label = "character",
+		molecularWeight = "numeric",
+		settlingVelocity = "numeric",
+		depositionVelocity = "numeric"
+	),
+	prototype(
+		settlingVelocity = 0.0,
+		depositionVelocity = 0.0
+	)
+)
+
 setClass("FreeFlowLinks", 
 	representation(
 		traffic.volume = "character",
@@ -20,18 +33,14 @@ setClass("Caline3Model",
 		receptors = "Receptors",
 		sources = "FreeFlowLinks",
 		conditions = "HourlyMeteorology",
-		pollutant = "character",
+		pollutant = "Pollutant",
 		surfaceRoughness = "numeric",
-		averagingTime = "numeric",
-		settlingVelocity = "numeric",
-		depositionVelocity = "numeric"
+		averagingTime = "numeric"
 	),
 	prototype(
-		pollutant = "CO",
+		pollutant = Pollutant("CO"),
 		surfaceRoughness = 300.0,
 		averagingTime = 60.0,
-		settlingVelocity = 0.0,
-		depositionVelocity = 0.0
 	),
 	contains = "DispersionModel"
 )
