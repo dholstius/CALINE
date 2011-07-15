@@ -1,2 +1,5 @@
-exportPattern("^[[:alpha:]]+")
+importFrom(plume)
 export(.CALINE3.Fortran)
+export(.CALINE3.receptors)
+export(.CALINE3.links)
+exportPattern("^[[:alpha:]]+")
