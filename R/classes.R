@@ -38,9 +38,9 @@ setClass("Caline3Model",
 		averagingTime = "numeric"
 	),
 	prototype(
-		pollutant = Pollutant("CO"),
+		pollutant = new("Pollutant", label="CO", molecularWeight=28.0),
 		surfaceRoughness = 300.0,
-		averagingTime = 60.0,
+		averagingTime = 60.0
 	),
 	contains = "DispersionModel"
 )

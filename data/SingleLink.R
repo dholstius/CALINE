@@ -15,6 +15,5 @@ SingleLink <- Caline3Model(
 		CLAS = "F",
 		MIXH = 1000.0
 	),
-	pollutant = "CO",
 	surfaceRoughness = 10.0
 )

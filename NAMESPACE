@@ -1,3 +1,6 @@
-importFrom(plume)
+importFrom(stats, predict)
+importClassesFrom(plume, Spatial, SpatialPoints, SpatialLines, SpatialLinesDataFrame)
+importClassesFrom(plume, DispersionModel, Receptors, Sources, Conditions)
+importClassesFrom(plume, SpatialSegments, SpatialSegmentsDataFrame)
 export(CALINE3.Fortran)
 exportPattern("^[[:alpha:]]+")
